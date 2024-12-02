@@ -10,36 +10,27 @@ import android.widget.SeekBar
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main) // Make sure this matches your XML file
+        setContentView(R.layout.activity_main)
 
-        // Reference the DoodleView
         val doodleView = findViewById<DoodleView>(R.id.doodleCanvas)
 
-        // Handle the Clear button
         val clearButton = findViewById<Button>(R.id.clearButton)
         clearButton.setOnClickListener {
             doodleView.clearCanvas()
         }
 
-        // Handle the Brush Size slider
         val brushSizeSlider = findViewById<SeekBar>(R.id.brushSizeSlider)
-        brushSizeSlider.progress = 10 // Default brush size
-        brushSizeSlider.max = 50 // Maximum brush size
+        brushSizeSlider.progress = 10
+        brushSizeSlider.max = 50
         brushSizeSlider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 doodleView.setBrushSize(progress.toFloat())
             }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                // Do nothing for now
-            }
-
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                // Do nothing for now
-            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
-        // Handle the Color Radio Buttons
         val colorRadioGroup = findViewById<RadioGroup>(R.id.colorRadioGroup)
         colorRadioGroup.setOnCheckedChangeListener { _, checkedId ->
             val color = when (checkedId) {
