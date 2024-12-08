@@ -12,24 +12,39 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         val doodleView = findViewById<DoodleView>(R.id.doodleCanvas)
+
 
         val clearButton = findViewById<Button>(R.id.clearButton)
         clearButton.setOnClickListener {
             doodleView.clearCanvas()
         }
 
+        // Handle the Undo button
+        val undoButton = findViewById<Button>(R.id.undoButton)
+        undoButton.setOnClickListener {
+            doodleView.undoLastPath()
+        }
+
+
         val brushSizeSlider = findViewById<SeekBar>(R.id.brushSizeSlider)
-        brushSizeSlider.progress = 10
-        brushSizeSlider.max = 50
+        brushSizeSlider.progress = 10 // Default brush size
+        brushSizeSlider.max = 50 // Maximum brush size
         brushSizeSlider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 doodleView.setBrushSize(progress.toFloat())
             }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+
+            }
         })
+
 
         val colorRadioGroup = findViewById<RadioGroup>(R.id.colorRadioGroup)
         colorRadioGroup.setOnCheckedChangeListener { _, checkedId ->

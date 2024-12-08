@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_marginTop="32dp">
 
-    <!-- Brush Width Slider -->
+
     <SeekBar
         android:id="@+id/brushSizeSlider"
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
         android:max="50"
         android:progress="10" />
 
-    <!-- Clear Button -->
+
     <Button
         android:id="@+id/clearButton"
         android:layout_width="wrap_content"
@@ -25,7 +25,7 @@
         android:layout_marginBottom="16dp"
         android:text="Clear" />
 
-    <!-- Color Selection Buttons -->
+
     <RadioGroup
         android:id="@+id/colorRadioGroup"
         android:layout_width="wrap_content"
@@ -69,12 +69,21 @@
             android:textColor="#800080" />
     </RadioGroup>
 
-    <!-- Doodle Canvas -->
+
     <com.example.doodle.DoodleView
         android:id="@+id/doodleCanvas"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#FFFFFF" /> <!-- Set background to white -->
+        android:background="#FFFFFF" />
+
+
+    <Button
+        android:id="@+id/undoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:text="Undo" />
 
 </LinearLayout>
